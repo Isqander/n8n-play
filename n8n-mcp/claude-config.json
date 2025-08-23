@@ -1,0 +1,39 @@
+//For docker desctop:
+{
+  "mcpServers": {
+    "n8n-mcp": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "-e", "MCP_MODE=stdio",
+        "-e", "LOG_LEVEL=error",
+        "-e", "DISABLE_CONSOLE_OUTPUT=true",
+        "-e", "N8N_API_URL=http://185.143.179.82:5678",
+        "-e", "N8N_API_KEY=input!!!",
+        "ghcr.io/czlonkowski/n8n-mcp:latest"
+      ]
+    }
+  }
+}
+//For docker into wsl:
+{
+  "mcpServers": {
+    "n8n-mcp": {
+      "command": "wsl",
+      "args": [
+        "-d","Ubuntu-24.04",
+        "-u","root",
+        "docker","run","-i","--rm","--init",
+        "-e","MCP_MODE=stdio",
+        "-e","LOG_LEVEL=error",
+        "-e","DISABLE_CONSOLE_OUTPUT=true",
+        "-e","N8N_API_URL=http://185.143.179.82:5678",
+        "-e","N8N_API_KEY=input!!!",
+        "ghcr.io/czlonkowski/n8n-mcp:latest"
+      ]
+    }
+  }
+}
